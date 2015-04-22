@@ -19,11 +19,11 @@ The purpose of doing this in multiple languages is that:
 For this project I will be mainly following the layout of Algorithms (4ed.) by Robert Sedgewick and Kevin Wayne, which is as follows:
 
 #### Fundamentals
- - Pushdown stack (resizing array)
- - Pushdown stack (linked-list)
- - FIFO queue
- - Bag
- - Union-find
+ - Pushdown stack (resizing array) (pg. 141)
+ - Pushdown stack (linked-list) (pg. 149)
+ - FIFO queue (pg. 151)
+ - Bag (pg. 155)
+ - Union-find (pg. 221)
 
 #### Sorting
  - Selection sort
