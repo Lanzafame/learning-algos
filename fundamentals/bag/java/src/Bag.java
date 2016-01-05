@@ -3,20 +3,21 @@ import java.util.Iterator;
 /**
  * Created by lanzafame on 22/04/15.
  */
+
+/**
+ * Bag()
+ *
+ * Creates an empty bag
+ */
 public class Bag<Item> implements Iterable<Item> {
 
-    /**
-     * Bag()
-     *
-     * Creates an empty bag
-     */
+    private Node first;     // first node in list
+    private int N;          // number of items
 
-
-    /**
-     * void add(Item item)
-     *
-     * Add an item to the Bag
-     */
+    private class Node {
+        Item item;
+        Node next;
+    }
 
     /**
      * boolean isEmpty()
@@ -24,6 +25,7 @@ public class Bag<Item> implements Iterable<Item> {
      * Return a boolean determined by whether the bag is empty or not
      * @return b
      */
+    public boolean isEmpty() { return first == null; }
 
     /**
      * int size()
@@ -31,10 +33,35 @@ public class Bag<Item> implements Iterable<Item> {
      * Return the number of items contained in the bag.
      * @return s
      */
+    public int size() { return N; }
 
-
-    @Override
-    public Iterator<Item> iterator() {
-        return null;
+    /**
+     * void add(Item item)
+     *
+     * Add an item to the Bag
+     */
+    public void add(Item item) {
+        // same as push() in Stack
+        Node oldfirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldfirst;
     }
+
+    public Iterator<Item> iterator() { return new ListIterator();  }
+
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        public boolean hasNext() { return current != null;  }
+
+        public void remove() {}
+
+        public Item next() {
+            Item item = current.item;
+            current = current.next;
+            return item;
+        }
+    }
+
 }
