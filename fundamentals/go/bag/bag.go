@@ -7,6 +7,8 @@
 
 package bag
 
+import "fmt"
+
 type Bag struct {
 	Nodes []Node
 }
@@ -26,7 +28,10 @@ func (b *Bag) Size() int {
 
 func (b *Bag) Add(item interface{}) {
 	oldfirst := b.Nodes[0]
-	first := Node{}
-	first.Item = item
-	first.Next = &oldfirst
+	first := Node{
+		Item: item,
+		Next: &oldfirst,
+	}
+	b.Nodes = append(b.Nodes, first)
+	fmt.Printf("%+v\n%T", b, b)
 }
