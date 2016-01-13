@@ -18,12 +18,12 @@ type Node struct {
 	Next *Node
 }
 
-func (b *Bag) IsEmpty() bool {
-	return len(b.Nodes) == 0
-}
-
 func (b *Bag) Size() int {
 	return len(b.Nodes)
+}
+
+func (b *Bag) IsEmpty() bool {
+	return b.Size() == 0
 }
 
 func (b *Bag) Add(item interface{}) {
